@@ -440,6 +440,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                     });
                 }); //End Laser Solder
 
+
+                // DXF Import by OpenHardwarecoza
                 chilipeppr.load(
                   "#com-chilipeppr-ws-dxf",
                   "http://raw.githubusercontent.com/openhardwarecoza/widget-laserweb/master/auto-generated-widget.html",
@@ -452,6 +454,20 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                         // Callback that is passed reference to the newly loaded widget
                         console.log("Widget /DXF just got loaded.", myObjWidgetDxf);
                         myObjWidgetDxf.init();
+                        var dxfBtn = $('#com-chilipeppr-ws-menu .dxf-button');
+                        var dxfDiv = $('#com-chilipeppr-ws-dxf');
+                        dxfBtn.click(function() {
+                            if (dxfDiv.hasClass("hidden")) {
+                                // unhide
+                                dxfDiv.removeClass("hidden");
+                                dxfBtn.addClass("active");
+                            }
+                            else {
+                                dxfDiv.addClass("hidden");
+                                dxfBtn.removeClass("active");
+                            }
+                            $(window).trigger('resize');
+                        });
                       }
                     );
                   }
