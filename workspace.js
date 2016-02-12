@@ -443,27 +443,44 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                 
              // DXF Import
             // com-chilipeppr-ws-dxf
+            
+            chilipeppr.load(
+  "#myDivWidgetDxf",
+  "http://raw.githubusercontent.com/openhardwarecoza/widget-dxf-chilipeppr/master/auto-generated-widget.html",
+  function() {
+    // Callback after widget loaded into #myDivWidgetDxf
+    // Now use require.js to get reference to instantiated widget
+    cprequire(
+      ["inline:com-chilipeppr-widget-dxf"], // the id you gave your widget
+      function(myObjWidgetDxf) {
+        // Callback that is passed reference to the newly loaded widget
+        console.log("Widget / DXF V0.1 just got loaded.", myObjWidgetDxf);
+        myObjWidgetDxf.init();
+      }
+    );
+  }
+);
             chilipeppr.load(
                 "#com-chilipeppr-ws-dxf",
                 "https://raw.githubusercontent.com/openhardwarecoza/widget-dxf-chilipeppr/master/auto-generated-widget.html",
                 function() {
-                    require(["inline:com-chilipeppr-widget-dxf"], function(ls) {
-                        ls.init();
-                        ls.unactivateWidget();
+                    require(["inline:com-chilipeppr-widget-dxf"], function(dxfwidget) {
+                    dxfwidget.init();
+                        dxfwidget.unactivateWidget();
                         // setup toggle button
-                        var alBtn = $('#com-chilipeppr-ws-menu .dxf-button');
-                        var alDiv = $('#com-chilipeppr-ws-dxf');
-                        alBtn.click(function() {
-                            if (alDiv.hasClass("hidden")) {
+                        var dxfBtn = $('#com-chilipeppr-ws-menu .dxf-button');
+                        var dxfDiv = $('#com-chilipeppr-ws-dxf');
+                        dxfBtn.click(function() {
+                            if (dxfDiv.hasClass("hidden")) {
                                 // unhide
-                                alDiv.removeClass("hidden");
-                                alBtn.addClass("active");
+                                dxfDiv.removeClass("hidden");
+                                dxfBtn.addClass("active");
                                 ls.activateWidget();
                             }
                             else {
-                                alDiv.addClass("hidden");
-                                alBtn.removeClass("active");
-                                ls.unactivateWidget();
+                                dxfDiv.addClass("hidden");
+                                dxfBtn.removeClass("active");
+                                dxfwidget.unactivateWidget();
                             }
                             $(window).trigger('resize');
 
