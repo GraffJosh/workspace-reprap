@@ -38,7 +38,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
         /**
          * The ID of the widget. You must define this and make it unique.
          */
-        id: "com-chilipeppr-workspace-tinyg", // Make the id the same as the cpdefine id
+        id: "com-chilipeppr-workspace-tinyg-plasma", // Make the id the same as the cpdefine id
         name: "Workspace / Plasma Cutter TinyG", // The descriptive name of your widget.
         desc: `This is a workspace for Plasma cutter CNCs running on TinyG.`,
         url: "(auto fill by runme.js)", // The final URL of the working widget as a single HTML file with CSS and Javascript inlined. You can let runme.js auto fill this if you are using Cloud9.
