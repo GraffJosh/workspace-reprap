@@ -440,6 +440,37 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                     });
                 }); //End Laser Solder
                 
+                
+             // DXF Import
+            // com-chilipeppr-ws-dxf
+            chilipeppr.load(
+                "#com-chilipeppr-ws-dxf",
+                "https://raw.githubusercontent.com/openhardwarecoza/widget-dxf-chilipeppr/master/auto-generated-widget.html",
+                function() {
+                    require(["inline:com-chilipeppr-widget-dxf"], function(ls) {
+                        ls.init();
+                        ls.unactivateWidget();
+                        // setup toggle button
+                        var alBtn = $('#com-chilipeppr-ws-menu .dxf-button');
+                        var alDiv = $('#com-chilipeppr-ws-dxf');
+                        alBtn.click(function() {
+                            if (alDiv.hasClass("hidden")) {
+                                // unhide
+                                alDiv.removeClass("hidden");
+                                alBtn.addClass("active");
+                                ls.activateWidget();
+                            }
+                            else {
+                                alDiv.addClass("hidden");
+                                alBtn.removeClass("active");
+                                ls.unactivateWidget();
+                            }
+                            $(window).trigger('resize');
+
+                        });
+                    });
+                }); //End Laser Solder
+                
 
             // Eagle BRD Import
             // com-chilipeppr-widget-eagle
