@@ -765,8 +765,19 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                     onDropped: function(data, info) {
                         console.log("onDropped. len of file:", data.length, "info:", info);
                         // we have the data
-                        // double check it's a board file, cuz it could be gcode
-                        if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
+                        // double check it's a DXF or a board file, cuz it could be gcode
+                         
+                         if (info.name.match(/.dxf$/i)) {
+                            // this looks like an Eagle brd file, but it's binary
+                            //chilipeppr.publish('/com-chilipeppr-elem-flashmsg/flashmsg', "DXF Found", "File matched as *.dxf ", 1000);
+                            console.log("file name does match *.dxf");
+                            // unhide
+                            dxfDiv.removeClass("hidden");
+                            dxfBtn.addClass("active");
+
+                            this.open(data, info);
+                            return false;
+                        } else if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
     
                             // check that there's a board tag
                             if (data.match(/<board>/i)) {
