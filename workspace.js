@@ -563,7 +563,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                             dxfDiv.removeClass("hidden");
                             dxfBtn.addClass("active");
 
-                            this.open(data, info);
+                            dxfInstance.open(data, info);
                             return false;
                         } else if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
     
