@@ -583,7 +583,7 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                             // drag/drop event because they won't know how to handle
                             // an Eagle Brd file
                             return false;
-                        }
+                        } 
                         else {
                             if (info && 'name' in info && info.name.match(/.brd$/i)) {
                                 // this looks like an Eagle brd file, but it's binary
