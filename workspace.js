@@ -562,7 +562,6 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                             var dxfDiv = $('#com-chilipeppr-ws-dxf');
                             dxfDiv.removeClass("hidden");
                             dxfBtn.addClass("active");
-
                             dxfInstance.open(data, info);
                             return false;
                         } else if (data.match(/<!DOCTYPE eagle SYSTEM "eagle.dtd">/i)) {
@@ -612,6 +611,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                         console.log("onDragOver");
                         $('#com-chilipeppr-widget-eagle').addClass("panel-primary");
                         $('#com-chilipeppr-ws-menu .eagle-button').addClass("btn-primary");
+                        $('#com-chilipeppr-ws-menu .dxf-button').addClass("btn-primary");
+                        
                     },
                     onDragLeave: function() {
                         console.log("onDragLeave");
