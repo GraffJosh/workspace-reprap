@@ -772,6 +772,8 @@ cpdefine("inline:com-chilipeppr-workspace-tinyg-plasma", ["chilipeppr_ready"], f
                             //chilipeppr.publish('/com-chilipeppr-elem-flashmsg/flashmsg', "DXF Found", "File matched as *.dxf ", 1000);
                             console.log("file name does match *.dxf");
                             // unhide
+                            var dxfBtn = $('#com-chilipeppr-ws-menu .dxf-button');
+                            var dxfDiv = $('#com-chilipeppr-ws-dxf');
                             dxfDiv.removeClass("hidden");
                             dxfBtn.addClass("active");
 
