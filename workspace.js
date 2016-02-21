@@ -147,7 +147,7 @@ cpdefine("inline:com-chilipeppr-workspace-reprap", ["chilipeppr_ready"], functio
                         spjs.setSingleSelectMode();
                         spjs.init({
                             isSingleSelectMode: true,
-                            defaultBuffer: "tinyg",
+                            defaultBuffer: "marlin",
                             defaultBaud: 115200,
                             bufferEncouragementMsg: 'For your device please choose the "tinyg" or "tinygg2" buffer in the pulldown and a 115200 baud rate before connecting.'
                         });
@@ -1007,13 +1007,12 @@ cpdefine("inline:com-chilipeppr-workspace-reprap", ["chilipeppr_ready"], functio
                 }
             ); //End XYZ
             
-            // TinyG
-            // http://jsfiddle.net/chilipeppr/XxEBZ/
-            // com-chilipeppr-tinyg
+            // Reprap
+            
             chilipeppr.load(
-                "com-chilipeppr-tinyg",
+                "com-chilipeppr-reprap",
                 // Lauer's v2 (Jul 28th 2015) Fixed to {"sv":1}
-                "http://raw.githubusercontent.com/openhardwarecoza/widget-tinyg/master/auto-generated-widget.html",
+                "http://raw.githubusercontent.com/openhardwarecoza/widget-reprap/master/auto-generated-widget.html",
                 // Danal's version
                 //"http://fiddle.jshell.net/Danal/6rq2wx3o/show/light/",
                 // Lauer's version
@@ -1021,7 +1020,7 @@ cpdefine("inline:com-chilipeppr-workspace-reprap", ["chilipeppr_ready"], functio
         
                 function () {
                     cprequire(
-                    ["inline:com-chilipeppr-widget-tinyg"],
+                    ["inline:com-chilipeppr-widget-reprap"],
             
                     function (tinyg) {
                         tinyg.init();
