@@ -27,7 +27,7 @@ cprequire_test(["inline:com-chilipeppr-workspace-reprap"], function(ws) {
     ws.init();
 
     // Do some niceties for testing like margins on widget and title for browser
-    $('title').html("Tinyg Plasma Cutter Workspace");
+    $('title').html("ChiliPeppr 3D Printing Workspace");
     $('body').css('padding', '10px');
 
 } /*end_test*/ );
@@ -1026,7 +1026,26 @@ cpdefine("inline:com-chilipeppr-workspace-reprap", ["chilipeppr_ready"], functio
                         tinyg.init();
                     });
                 }
-            ); //End TinyG
+            ); //End Reprap
+            
+            // Ray's STL SLic3r / Viewer
+            
+            chilipeppr.load(
+              "#myDivWidgetStlViewer",
+              "http://raw.githubusercontent.com/raykholo/widget-stlViewer/master/auto-generated-widget.html",
+              function() {
+                // Callback after widget loaded into #myDivWidgetStlViewer
+                // Now use require.js to get reference to instantiated widget
+                cprequire(
+                  ["inline:com-chilipeppr-widget-stlViewer"], // the id you gave your widget
+                  function(myObjWidgetStlViewer) {
+                    // Callback that is passed reference to the newly loaded widget
+                    console.log("Widget / stlViewer just got loaded.", myObjWidgetStlViewer);
+                    myObjWidgetStlViewer.init();
+                  }
+                );
+              }
+            );
 
             // WebRTC Client com-chilipeppr-webrtcclient
             /*
