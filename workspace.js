@@ -941,7 +941,7 @@ cpdefine("inline:com-chilipeppr-workspace-reprap", ["chilipeppr_ready"], functio
 
                         function(gcodelist) {
                             gcodelist.init({
-                                lineNumbersOnByDefault: true
+                                lineNumbersOnByDefault: false //Most reprap controllers doesnt like line numbers
                             });
                         }
                     );
